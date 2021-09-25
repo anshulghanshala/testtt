@@ -62,10 +62,11 @@ def total(list):
 
 def main_work(s):
     st, en = longestPalindrome(s)
-    index = (st+en)/2
+    
     if st == en == -1:
-        return 1
-
+        return s,1,(len(s)/2)
+    
+    index = (st+en)/2
     st, en = count_char(s, st, en)
 
     while(1):
