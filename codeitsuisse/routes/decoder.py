@@ -49,7 +49,7 @@ def evaluatedecoder():
     index = 0
 
     if history_size == 0:
-        result = makelist(possibleValues, slots, 0, 0)
+        result = {"answer":makelist(possibleValues, slots, 0, 0)}
         # res = []
         # res.append(result)
         logging.info("My results are :{}".format(result[::]))
@@ -73,7 +73,7 @@ def evaluatedecoder():
 
 
     result = {"answer":guessNumber(possibleValues,slots,past_data_list,past_data_result,total,start,index)}
-    logging.info("My result :{}".format(result))                                  
+    logging.info("My result :{}".format(result[::]))
     #res = []
     #res.append(result)
     return json.dumps(result) 
