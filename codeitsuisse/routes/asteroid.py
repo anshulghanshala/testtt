@@ -64,9 +64,9 @@ def main_work(s):
     st, en = longestPalindrome(s)
     
     if st == en == -1:
-        return s,1,(len(s)/2)
+        return s,1,int(len(s)/2)
     
-    index = (st+en)/2
+    index = int((st+en)/2)
     st, en = count_char(s, st, en)
 
     while(1):
