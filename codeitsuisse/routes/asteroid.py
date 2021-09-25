@@ -2,7 +2,7 @@ import logging
 import json
 
 from flask import request, jsonify
-
+from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 
@@ -29,6 +29,7 @@ def longestPalindrome(s):
 
     return st, en
 
+
 def count_char(s,st,en):
     if st > 0:
         m = s[st]
@@ -45,6 +46,7 @@ def count_char(s,st,en):
             else:
                 break
     return st,en
+
 
 def total(list):
     total = 0
@@ -78,8 +80,9 @@ def main_work(s):
 
     for keys in str:
         res[keys] = res.get(keys, 0) + 1
-
+        
     return s , total(res.values()) , index
+
 
 @app.route('/asteroid', methods=['POST'])
 def evaluateasteroid():
