@@ -53,7 +53,7 @@ def evaluatedecoder():
         # res = []
         # res.append(result)
         logging.info("My results are :{}".format(result[::]))
-        return json.dumps({result})
+        return json.dumps(result)
 
     else:
         for i in range(len(history)):
