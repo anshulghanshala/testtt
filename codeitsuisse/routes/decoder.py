@@ -80,7 +80,7 @@
     
 import logging
 import json
-
+import random
 from flask import request, jsonify
 
 from codeitsuisse import app
@@ -139,7 +139,7 @@ def guess_number(lists, slots, data, result, total, start, index):
 
 
 @app.route('/decoder', methods=['POST'])
-def evaluatedecoder():
+def decoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     possibleValues = data.get("possible_values")
@@ -154,14 +154,14 @@ def evaluatedecoder():
     index = 0
 
     if history_size == 0:
-        result = {"answer": make_list(possibleValues, slots, 0, 0)}
-#        res = []
-#        res.append(result)
+        result = {
+            "answer": make_list(possibleValues, slots, 0, 0)
+        }
         logging.info("My result :{}".format(result))
         return jsonify(result)
 
     else:
-        for i in history:
+        for i in range(len(history)):
             past_data_list.append(i.get("output_received"))
             res = []
             result_data = i.get("result")
@@ -177,8 +177,6 @@ def evaluatedecoder():
                 total.append(result_data)
                 past_data_result.append(res)
 
-    result = {"answer":guessNumber(possibleValues,slots,past_data_list,past_data_result,total,start,index)}
+    result = {"answer": guess_number(possibleValues, slots, past_data_list, past_data_result, total, start, index)}
     logging.info("My result :{}".format(result))
-        #res = []
-        #   res.append(result)
-    return json.dumps(result)
+    return jsonify(result)
