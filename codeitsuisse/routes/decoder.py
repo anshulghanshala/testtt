@@ -177,8 +177,8 @@ def evaluatedecoder():
                 total.append(result_data)
                 past_data_result.append(res)
 
-        result = {"answer":guessNumber(possibleValues,slots,past_data_list,past_data_result,total,start,index)}
-        logging.info("My result :{}".format(result))
+    result = {"answer":guessNumber(possibleValues,slots,past_data_list,past_data_result,total,start,index)}
+    logging.info("My result :{}".format(result))
         #res = []
         #   res.append(result)
-        return json.dumps(result)
+    return json.dumps(result)
