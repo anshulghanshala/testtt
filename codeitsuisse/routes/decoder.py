@@ -154,11 +154,9 @@ def evaluatedecoder():
     index = 0
 
     if history_size == 0:
-        result = {
-            "answer": make_list(possibleValues, slots, 0, 0)
-        }
-        res = []
-        res.append(result)
+        result = {"answer": make_list(possibleValues, slots, 0, 0)}
+#        res = []
+#        res.append(result)
         logging.info("My result :{}".format(res))
         return jsonify(res)
 
