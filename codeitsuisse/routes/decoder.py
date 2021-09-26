@@ -157,8 +157,8 @@ def evaluatedecoder():
         result = {"answer": make_list(possibleValues, slots, 0, 0)}
 #        res = []
 #        res.append(result)
-        logging.info("My result :{}".format(res))
-        return jsonify(res)
+        logging.info("My result :{}".format(result))
+        return jsonify(result)
 
     else:
         for i in history:
